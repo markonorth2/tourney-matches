@@ -1,19 +1,18 @@
-import React from 'react'; //optional
+// MatchList.js
 
-function TweetForm(){
-  let text = "what are you humming about?";
+import React from "react"; //optional
+import Match from "./Match";
+import matchData from '../data/matchData';
+
+function MatchList(props) {
   
+  const parsedMatches = matchData.map(match => <Match key = {match.matchNumber} {...match} />);
   return (
-
-    <section class="newtweet">
-      <form method=".preventDefault" action="/tweets" class="newtweet__form">
-        <textarea class="form__textarea" name="text" placeholder= {text}  ></textarea>
-        <input type="submit" value="Tweet" class="form__input" />
-        <span class="form__counter">140</span >
-      </form>
-    
+    <section className="PlayerList MatchList">
+      <h1>Match list</h1>
+      { parsedMatches}
     </section>
   );
 }
 
-export default TweetForm;
+export default MatchList;
